@@ -27,7 +27,7 @@
     margin-top: 0 !important;   /* Reset alignment for desktop */
     display: inline-flex !important;
     align-items: center !important;
-  }
+  } 
 }
 
 /* 3. Image behavior for both mobile and desktop */
