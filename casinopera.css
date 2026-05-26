@@ -11,16 +11,28 @@
     display: inline-flex !important;
     align-items: center !important;
   }
+
+  /* Restricts the logo image size inside the mobile wrapper */
+  [data-mj="logo"] > img {
+    max-width: 120px !important; 
+  }
 }
 
 /* 2. Desktop Settings (Large Screens) */
 @media screen and (min-width: 1025px) {
   [data-mj="logo"] {
-    width: 160px !important;  /* Your preferred Desktop width */
-    height: 80px !important;  /* Your preferred Desktop height */
+    width: 160px !important;    /* Your preferred Desktop width */
+    height: 80px !important;    /* Your preferred Desktop height */
     min-width: 160px !important;
     margin-top: 0 !important;   /* Reset alignment for desktop */
     display: inline-flex !important;
     align-items: center !important;
   }
+}
+
+/* 3. Image behavior for both mobile and desktop */
+[data-mj="logo"] img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important; /* Prevents stretching or distortion */
 }
