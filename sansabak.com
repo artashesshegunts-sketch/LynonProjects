@@ -1,0 +1,25 @@
+@media screen and (max-width: 1024px) {
+  [data-mj="logo"] {
+    width: 88px !important;
+    height: 42px !important;
+    min-width: 88px !important;
+    min-height: 42px !important;
+    margin-top: -6px !important; /* Adjust this to move it up/down on mobile */
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  [data-mj="logo"] > img {
+    max-width: 120px !important;
+  }
+}
+
+/* 2. Desktop Settings (Large Screens) */
+@media screen and (min-width: 1025px) {
+  [data-mj="logo"] {
+    width: 160px !important;  /* Your preferred Desktop width */
+    height: 80px !important;  /* Your preferred Desktop height */
+    min-width: 160px !important;
+    margin-top: 0 !important;   /* Reset alignment for desktop */
+    display: inline-flex !important;
+    align-items: center !important;
