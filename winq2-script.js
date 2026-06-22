@@ -5,8 +5,8 @@
   var scheduled = false;
   var delayedRun = 0;
   var modalSelector = '.modal[role="alertdialog"], .css-1fg8vzl';
-  var tablistSelector = 'ul[role="tablist"].app-ltr-17pv0q3, ul[role="tablist"].css-17pv0q3';
-  var tabButtonSelector = 'li[role="presentation"] > button[role="tab"]';
+  var tablistSelector = 'ul[role="tablist"].app-ltr-17pv0q3, ul[role="tablist"].css-17pv0q3, ul[role="tablist"]';
+  var tabButtonSelector = 'li[role="presentation"] > button[role="tab"], li > button[role="tab"]';
   var initializedAttr = "data-gebeta-auth-tabs-initialized";
 
   function getButtonText(button) {
@@ -20,16 +20,18 @@
   function findButtons(tablist) {
     var buttons = getTabButtons(tablist);
     
+    // Updated to match the exact words from your winq.bet screenshot
+    var emailKeywords = ["email", "ኤሌክትሮኒክ"];
+    var phoneKeywords = ["phone", "ስልክ"];
+
     var emailButton = buttons.find(function (button) {
       var text = getButtonText(button);
-      // Works if text is exactly "email" or the Amharic words
-      return text === "email" || text === "ኢሜይል" || text === "ኢሜል" || text === "በኢሜይል";
+      return emailKeywords.some(function(keyword) { return text.indexOf(keyword) !== -1; });
     });
     
     var phoneButton = buttons.find(function (button) {
       var text = getButtonText(button);
-      // Works if text is exactly "phone" or the Amharic words
-      return text === "phone" || text === "ስልክ" || text === "ስልክ ቁጥር" || text === "በስልክ";
+      return phoneKeywords.some(function(keyword) { return text.indexOf(keyword) !== -1; });
     });
 
     return {
@@ -43,8 +45,8 @@
       return;
     }
 
-    var phoneItem = phoneButton.closest('li[role="presentation"]');
-    var emailItem = emailButton.closest('li[role="presentation"]');
+    var phoneItem = phoneButton.closest('li');
+    var emailItem = emailButton.closest('li');
 
     if (!phoneItem || !emailItem || phoneItem === emailItem) {
       return;
@@ -74,7 +76,10 @@
       return;
     }
 
-    if (phoneButton.getAttribute("aria-current") !== "page") {
+    var isActive = phoneButton.getAttribute("aria-current") === "page" || 
+                   phoneButton.getAttribute("aria-selected") === "true";
+
+    if (!isActive) {
       phoneButton.click();
     }
 
@@ -90,6 +95,12 @@
       if (tablist) {
         initializeTabState(tablist);
       }
+    });
+
+    // Global selector fallback if the modal classes behave differently in Amharic view
+    var allTablists = Array.prototype.slice.call(document.querySelectorAll(tablistSelector));
+    allTablists.forEach(function (tablist) {
+      initializeTabState(tablist);
     });
 
     if (delayedRun) {
@@ -127,7 +138,7 @@
       childList: true,
       subtree: true,
       attributes: true,
-      attributeFilter: ["class", "aria-current"]
+      attributeFilter: ["class", "aria-current", "aria-selected"]
     });
   }
 
