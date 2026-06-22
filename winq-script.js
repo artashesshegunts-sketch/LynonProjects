@@ -19,11 +19,19 @@
 
   function findButtons(tablist) {
     var buttons = getTabButtons(tablist);
+    
+    // Arrays containing both English and Amharic variations of the tab text
+    var emailKeywords = ["email", "ኢሜይል", "ኢሜል", "በኢሜይል"];
+    var phoneKeywords = ["phone", "ስልክ", "ስልክ ቁጥር", "በስልክ"];
+
     var emailButton = buttons.find(function (button) {
-      return getButtonText(button) === "email";
+      var text = getButtonText(button);
+      return emailKeywords.some(function(keyword) { return text.indexOf(keyword) !== -1; });
     });
+    
     var phoneButton = buttons.find(function (button) {
-      return getButtonText(button) === "phone";
+      var text = getButtonText(button);
+      return phoneKeywords.some(function(keyword) { return text.indexOf(keyword) !== -1; });
     });
 
     return {
