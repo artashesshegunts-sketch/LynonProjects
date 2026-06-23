@@ -1,0 +1,11 @@
+a[data-mj="login-button"] {
+  background-color: #21ab46 !important;
+  color: #ffffff !important; /* Optional: Sets the text color to white for better contrast */
+}
+
+
+[data-mj="bottom-nav"] .app-ltr-idt7iu .app-ltr-ja3k2i > [data-mj="bottom-nav-item"]:has(span[style*="b56598da"]) { order: 1 !important; }
+[data-mj="bottom-nav"] .app-ltr-idt7iu .app-ltr-ja3k2i > [data-mj="bottom-nav-item"]:has(span[style*="8c4b3e90"]) { order: 2 !important; }
+[data-mj="bottom-nav"] .app-ltr-idt7iu .app-ltr-ja3k2i > [data-mj="bottom-nav-item"]:has(span[style*="9f1f77ca"]) { order: 3 !important; }
+[data-mj="bottom-nav"] .app-ltr-idt7iu .app-ltr-ja3k2i > [data-mj="bottom-nav-item"]:has(span[style*="c1e60002"]) { order: 4 !important; }
+[data-mj="bottom-nav"] .app-ltr-idt7iu .app-ltr-ja3k2i > [data-mj="bottom-nav-item"]:has(span[style*="e4c0aa2d"]) { order: 5 !important; }
