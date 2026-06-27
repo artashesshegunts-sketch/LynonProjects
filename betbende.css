@@ -1,0 +1,12 @@
+/* 1. Forcefully kill the bottom padding completely */
+[data-mj="page-content"],
+html body [data-mj="page-content"] {
+  padding-bottom: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+/* 2. Retain your rounded card images layout */
+html body [data-mj="widget-pages-item"] img {
+  border-radius: 14px !important;
+  overflow: hidden !important;
+}
