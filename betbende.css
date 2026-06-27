@@ -1,0 +1,19 @@
+/* 1. Forcefully turn off bottom padding from page content and the specific footer wrapper */
+[data-mj="page-content"],
+html body [data-mj="page-content"],
+.app-ltr-1qxz5lp {
+  padding-bottom: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+/* 2. Hide structural layout controls and spacing containers (Using your reference logic) */
+.app-ltr-cfnr2u .app-ltr-17j42lr-control,
+[class*="-control"] {
+  display: none !important;
+}
+
+/* 3. Maintain your rounded image cards */
+html body [data-mj="widget-pages-item"] img {
+  border-radius: 14px !important;
+  overflow: hidden !important;
+}
