@@ -1,0 +1,29 @@
+/* ==========================================================================
+   GAME CARD / BANNER LABEL OVERLAYS
+   ========================================================================== */
+
+/* 1. Absolutely positioned label container sitting below the parent card */
+.app-ltr-lhbbxp {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: -25px;
+  padding: 6px;
+  pointer-events: none; /* Allows clicks to pass through to the element underneath */
+  display: flex;
+  justify-content: center;
+}
+
+/* 2. Label text typography, centering, and ellipsis handling for long text */
+.app-ltr-1uys7bq {
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Appends "..." if the title is too long for the card */
+  width: 100%;
+  text-align: center;
+  line-height: 1.2;
+  font-size: 14px;
+  font-weight: 500;
+}
