@@ -7,7 +7,7 @@
   position: absolute;
   left: 0px;
   right: 0px;
-  bottom: -25px;
+  bottom: -20px;
   padding: 6px;
   pointer-events: none; /* Allows clicks to pass through to the element underneath */
   display: flex;
